@@ -1,0 +1,126 @@
+/* The app's own palette and hand. Kept in step with DesignSystem/Colors.swift
+   and Features/Settings/SettingsLogoKit.swift — if those move, move these. */
+:root {
+  --bg:        #0e0e10;
+  --felt:      #101113;
+  --felt-lit:  #18191c;
+  --glow:      #4fc8ff;
+  --edge:      #3ab4f5;
+  --silver:    #c7ccd4;
+  --white:     #f5f7fa;
+  --indigo:    #8b85ec;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0 20px 80px;
+  background-color: var(--bg);
+  /* The dot floor the settings page stands on. */
+  background-image: radial-gradient(rgba(58,180,245,.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--white);
+  font-family: Quicksand, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 500;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page { max-width: 620px; margin: 0 auto; }
+
+/* The wordmark, lit from inside the way the icon writes it. */
+header { text-align: center; padding: 54px 0 8px; }
+
+.wordmark {
+  display: inline-block;
+  font-family: Mali, cursive;
+  font-weight: 600;
+  font-size: 30px;
+  color: var(--glow);
+  text-decoration: none;
+  text-shadow: 0 0 3px rgba(79,200,255,.55), 0 0 12px rgba(79,200,255,.28);
+}
+
+h1 {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  margin: 26px 0 14px;
+  text-align: center;
+}
+
+/* Said first and biggest, before any detail. */
+.lead {
+  font-size: 18px;
+  color: var(--silver);
+  text-align: center;
+  margin: 0 auto 10px;
+  max-width: 30ch;
+}
+
+.stamp {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(199,204,212,.55);
+  margin: 0 0 38px;
+}
+
+/* Each part is a note pinned to the wall, tilted a hair like the real ones. */
+.note {
+  position: relative;
+  background: var(--felt-lit);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 18px;
+  padding: 26px 24px 22px;
+  margin: 0 0 20px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.45);
+}
+.note:nth-child(odd)  { transform: rotate(-.35deg); }
+.note:nth-child(even) { transform: rotate(.4deg); }
+
+/* The pin. */
+.note::before {
+  content: "";
+  position: absolute;
+  top: -7px; left: 50%;
+  width: 13px; height: 13px;
+  margin-left: -6.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #8fdcff, var(--edge) 62%, #1c74a8);
+  box-shadow: 0 2px 5px rgba(0,0,0,.6);
+}
+
+.note h2 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--white);
+}
+.note p { margin: 0; color: var(--silver); font-size: 15.5px; }
+.note p + p { margin-top: 10px; }
+
+a { color: var(--glow); }
+
+.contact {
+  font-family: Mali, cursive;
+  font-weight: 600;
+  font-size: 19px;
+  word-break: break-word;
+}
+
+footer {
+  margin-top: 44px;
+  text-align: center;
+  font-size: 13.5px;
+  color: rgba(199,204,212,.6);
+}
+footer a { margin: 0 9px; white-space: nowrap; }
+
+@media (max-width: 420px) {
+  h1 { font-size: 28px; }
+  .lead { font-size: 16.5px; }
+  .note { padding: 24px 19px 20px; }
+}
